@@ -27,6 +27,7 @@ namespace Курсовая_работа2
         {
             Form3 form3 = new Form3();
             form3.Show();
+            this.Hide();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
