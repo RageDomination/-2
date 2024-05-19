@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Курсовая_работа2
@@ -71,6 +73,17 @@ namespace Курсовая_работа2
         private int militaryCounter = 1;
         private void button3_Click(object sender, EventArgs e)
         {
+            // Проверка, что все текстовые поля заполнены
+            if (string.IsNullOrWhiteSpace(textBox1.Text) ||
+                string.IsNullOrWhiteSpace(textBox2.Text) ||
+                string.IsNullOrWhiteSpace(textBox3.Text) ||
+                string.IsNullOrWhiteSpace(textBox4.Text) ||
+                string.IsNullOrWhiteSpace(textBox5.Text))
+            {
+                MessageBox.Show("Всі поля мають бути заповнені!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // строка для хранения информации о военнообязанных
             string info = "[ЗАПАС] Військовообов'язаний " + militaryCounter + "\n";
 
@@ -97,41 +110,129 @@ namespace Курсовая_работа2
 
             // счетчик для следующего военнообязанного
             militaryCounter++;
+
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            // Проверка, что все текстовые поля заполнены
+            if (string.IsNullOrWhiteSpace(textBox6.Text) ||
+                string.IsNullOrWhiteSpace(textBox7.Text) ||
+                string.IsNullOrWhiteSpace(textBox8.Text) ||
+                string.IsNullOrWhiteSpace(textBox9.Text) ||
+                string.IsNullOrWhiteSpace(textBox10.Text) ||
+                string.IsNullOrWhiteSpace(textBox11.Text))
             {
-                // строка хранения информации о военнообязанных
-                string info = "Військовозабов'язаний " + militaryCounter + "\n";
+                MessageBox.Show("Всі поля мають бути заповнені!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                // инфо о военнообязанном в ListBox
-                listBox1.Items.Add(info);
+            // строка хранения информации о военнообязанных
+            string info = "Військовозабов'язаний " + militaryCounter + "\n";
 
-                // инфо из каждого текстового поля поочередно
-                info = "ПІБ: " + textBox6.Text + "\n";
-                listBox1.Items.Add(info);
+            // инфо о военнообязанном в ListBox
+            listBox1.Items.Add(info);
 
-                info = "Рік народження: " + textBox7.Text + "\n";
-                listBox1.Items.Add(info);
+            // инфо из каждого текстового поля поочередно
+            info = "ПІБ: " + textBox6.Text + "\n";
+            listBox1.Items.Add(info);
 
-                info = "Дата призову: " + textBox8.Text + "\n";
-                listBox1.Items.Add(info);
+            info = "Рік народження: " + textBox7.Text + "\n";
+            listBox1.Items.Add(info);
 
-                info = "Дата занесення до реєстру: " + textBox9.Text + "\n";
-                listBox1.Items.Add(info);
+            info = "Дата призову: " + textBox8.Text + "\n";
+            listBox1.Items.Add(info);
 
-                info = "Громадянство: " + textBox10.Text + "\n";
-                listBox1.Items.Add(info);
+            info = "Дата занесення до реєстру: " + textBox9.Text + "\n";
+            listBox1.Items.Add(info);
 
-                info = "Освіта, професія: " + textBox11.Text + "\n";
-                listBox1.Items.Add(info);
+            info = "Громадянство: " + textBox10.Text + "\n";
+            listBox1.Items.Add(info);
 
-                // строка с символами подчеркивания
-                listBox1.Items.Add("___________________");
+            info = "Освіта, професія: " + textBox11.Text + "\n";
+            listBox1.Items.Add(info);
 
-                // счетчик+1 для следующего военнообязанного
-                militaryCounter++;
+            // строка с символами подчеркивания
+            listBox1.Items.Add("___________________");
+
+            // счетчик+1 для следующего военнообязанного
+            militaryCounter++;
+
+            // очистка текстбоксов 6-11
+            ClearTextBoxes();
+        }
+
+        private void ClearTextBoxes()
+        {
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            textBox10.Clear();
+            textBox11.Clear();
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            // создание нового документа
+            XDocument doc = new XDocument();
+            XElement rootElement = new XElement("Items");
+
+            foreach (var item in listBox1.Items)
+            {
+                XElement itemElement = new XElement("Item", item.ToString());
+                rootElement.Add(itemElement);
+            }
+
+            doc.Add(rootElement);
+
+            // открытие диалога
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
+            saveFileDialog.DefaultExt = "xml";
+            saveFileDialog.AddExtension = true;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // система сохранения + меню
+                doc.Save(saveFileDialog.FileName);
+                MessageBox.Show("Файл успішно збережено!", "Збереження", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // диалог для выбора XML файла
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // загружка XML документа
+                    XDocument doc = XDocument.Load(openFileDialog.FileName);
+
+                    listBox1.Items.Clear();
+
+                    // добавление в listBox
+                    foreach (XElement itemElement in doc.Descendants("Item"))
+                    {
+                        listBox1.Items.Add(itemElement.Value);
+                    }
+
+                    MessageBox.Show("Файл успішно завантажений!", "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Помилка при завантаженні: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
+}
