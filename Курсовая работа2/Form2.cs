@@ -39,6 +39,7 @@ namespace Курсовая_работа2
         {
             Form4 form4 = new Form4();
             form4.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -32,6 +32,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,18 +41,19 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // button4
@@ -92,6 +94,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1293, 38);
             this.panel1.TabIndex = 3;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox5.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(61, 39);
+            this.pictureBox5.TabIndex = 18;
+            this.pictureBox5.TabStop = false;
             // 
             // label1
             // 
@@ -143,23 +155,33 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button1.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(18, 134);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(343, 43);
             this.button1.TabIndex = 21;
-            this.button1.Text = "Отримати інформацію по звільненим військовозобов\'язаним";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Отримати інформацію по звільненим військов.";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.listBox1.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBox1.ForeColor = System.Drawing.Color.White;
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 23;
             this.listBox1.Location = new System.Drawing.Point(18, 188);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(343, 290);
+            this.listBox1.Size = new System.Drawing.Size(343, 301);
             this.listBox1.TabIndex = 22;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.listBox1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.dateTimePicker3);
@@ -173,49 +195,44 @@
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.listBox2);
             this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.dateTimePicker4);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.dateTimePicker5);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(835, 104);
+            this.panel4.Location = new System.Drawing.Point(832, 104);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(377, 499);
+            this.panel4.Size = new System.Drawing.Size(380, 499);
             this.panel4.TabIndex = 23;
             // 
-            // label4
+            // listBox2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(120, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Виберіть поточну дату";
+            this.listBox2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox2.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBox2.ForeColor = System.Drawing.Color.White;
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 23;
+            this.listBox2.Location = new System.Drawing.Point(18, 188);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(343, 301);
+            this.listBox2.TabIndex = 22;
             // 
-            // dateTimePicker5
+            // button2
             // 
-            this.dateTimePicker5.CalendarForeColor = System.Drawing.Color.DarkSeaGreen;
-            this.dateTimePicker5.CalendarMonthBackground = System.Drawing.Color.DarkSeaGreen;
-            this.dateTimePicker5.CalendarTitleForeColor = System.Drawing.SystemColors.ControlText;
-            this.dateTimePicker5.CalendarTrailingForeColor = System.Drawing.SystemColors.Desktop;
-            this.dateTimePicker5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateTimePicker5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker5.Location = new System.Drawing.Point(115, 33);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dateTimePicker5.Size = new System.Drawing.Size(132, 29);
-            this.dateTimePicker5.TabIndex = 18;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(122, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Виберіть кінцеву дату";
+            this.button2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button2.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(18, 134);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(343, 43);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Отримати кількість призваних на службу";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // dateTimePicker4
             // 
@@ -232,22 +249,38 @@
             this.dateTimePicker4.Size = new System.Drawing.Size(132, 29);
             this.dateTimePicker4.TabIndex = 20;
             // 
-            // button2
+            // label3
             // 
-            this.button2.Location = new System.Drawing.Point(18, 134);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(343, 43);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Отримати кількість призваних на службу";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(122, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Виберіть кінцеву дату";
             // 
-            // listBox2
+            // dateTimePicker5
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(18, 188);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(343, 290);
-            this.listBox2.TabIndex = 22;
+            this.dateTimePicker5.CalendarForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.dateTimePicker5.CalendarMonthBackground = System.Drawing.Color.DarkSeaGreen;
+            this.dateTimePicker5.CalendarTitleForeColor = System.Drawing.SystemColors.ControlText;
+            this.dateTimePicker5.CalendarTrailingForeColor = System.Drawing.SystemColors.Desktop;
+            this.dateTimePicker5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateTimePicker5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker5.Location = new System.Drawing.Point(115, 33);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateTimePicker5.Size = new System.Drawing.Size(132, 29);
+            this.dateTimePicker5.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(120, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(118, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Виберіть поточну дату";
             // 
             // panel3
             // 
@@ -256,15 +289,16 @@
             this.panel3.Size = new System.Drawing.Size(377, 499);
             this.panel3.TabIndex = 5;
             // 
-            // pictureBox5
+            // pictureBox2
             // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(61, 39);
-            this.pictureBox5.TabIndex = 18;
-            this.pictureBox5.TabStop = false;
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(573, 104);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(138, 78);
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
             // 
             // Form3
             // 
@@ -272,6 +306,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1281, 626);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -279,11 +314,12 @@
             this.Name = "Form3";
             this.Text = "Form3";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -308,5 +344,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
