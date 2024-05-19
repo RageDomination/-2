@@ -33,7 +33,7 @@ namespace Курсовая_работа2
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            listBox1.HorizontalScrollbar = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace Курсовая_работа2
         private void button3_Click(object sender, EventArgs e)
         {
             // строка для хранения информации о военнообязанных
-            string info = "Військовообов'язаний " + militaryCounter + "\n";
+            string info = "[ЗАПАС] Військовообов'язаний " + militaryCounter + "\n";
 
             // инфо о военнообязанном в ListBox
             listBox1.Items.Add(info);
@@ -98,6 +98,42 @@ namespace Курсовая_работа2
 
             // счетчик для следующего военнообязанного
             militaryCounter++;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            {
+                // строка хранения информации о военнообязанных
+                string info = "Військовозабов'язаний " + militaryCounter + "\n";
+
+                // инфо о военнообязанном в ListBox
+                listBox1.Items.Add(info);
+
+                // инфо из каждого текстового поля поочередно
+                info = "ПІБ: " + textBox6.Text + "\n";
+                listBox1.Items.Add(info);
+
+                info = "Рік народження: " + textBox7.Text + "\n";
+                listBox1.Items.Add(info);
+
+                info = "Дата призову: " + textBox8.Text + "\n";
+                listBox1.Items.Add(info);
+
+                info = "Дата занесення до реєстру: " + textBox9.Text + "\n";
+                listBox1.Items.Add(info);
+
+                info = "Громадянство: " + textBox10.Text + "\n";
+                listBox1.Items.Add(info);
+
+                info = "Освіта, професія: " + textBox11.Text + "\n";
+                listBox1.Items.Add(info);
+
+                // строка с символами подчеркивания
+                listBox1.Items.Add("___________________");
+
+                // счетчик+1 для следующего военнообязанного
+                militaryCounter++;
+            }
         }
     }
 }
