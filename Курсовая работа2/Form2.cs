@@ -30,7 +30,6 @@ namespace Курсовая_работа2
             form3.Show();
             this.Hide();
         }
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox1.HorizontalScrollbar = true;
@@ -136,4 +135,3 @@ namespace Курсовая_работа2
             }
         }
     }
-}
