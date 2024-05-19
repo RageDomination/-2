@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Курсовая_работа2
 {
@@ -67,6 +68,36 @@ namespace Курсовая_работа2
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private int militaryCounter = 1;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // строка для хранения информации о военнообязанных
+            string info = "Військовообов'язаний " + militaryCounter + "\n";
+
+            // инфо о военнообязанном в ListBox
+            listBox1.Items.Add(info);
+
+            // информация из каждого текстового поля поочередно
+            info = "ПІБ: " + textBox1.Text + "\n";
+            listBox1.Items.Add(info);
+
+            info = "Звання: " + textBox2.Text + "\n";
+            listBox1.Items.Add(info);
+
+            info = "Дата призову: " + textBox3.Text + "\n";
+            listBox1.Items.Add(info);
+
+            info = "Дата занесення до запасу: " + textBox4.Text + "\n";
+            listBox1.Items.Add(info);
+
+            info = "Військова частина: " + textBox5.Text + "\n";
+            listBox1.Items.Add(info);
+
+            listBox1.Items.Add("___________________");
+
+            // счетчик для следующего военнообязанного
+            militaryCounter++;
         }
     }
 }
