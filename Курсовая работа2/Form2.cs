@@ -29,6 +29,7 @@ namespace Курсовая_работа2
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
+            form3.SetListBoxItems(listBox1.Items);
             form3.Show();
             this.Hide();
         }
