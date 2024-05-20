@@ -35,6 +35,7 @@ namespace Курсовая_работа2
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox1.HorizontalScrollbar = true;
+            listBox1.SelectionMode = SelectionMode.MultiExtended;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -233,6 +234,13 @@ namespace Курсовая_работа2
                     MessageBox.Show("Помилка при завантаженні: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Form5 form5 = new Form5();
+            form5.Show();
+            this.Hide();
         }
     }
 }
