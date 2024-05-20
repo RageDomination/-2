@@ -85,7 +85,7 @@ namespace Курсовая_работа2
             }
 
             // строка для хранения информации о военнообязанных
-            string info = "[ЗАПАС] Військовообов'язаний " + militaryCounter + "\n";
+            string info = "[ЗАПАС] Військовозабов'язаний " + militaryCounter + "\n";
 
             // инфо о военнообязанном в ListBox
             listBox1.Items.Add(info);
@@ -97,10 +97,10 @@ namespace Курсовая_работа2
             info = "Звання: " + textBox2.Text + "\n";
             listBox1.Items.Add(info);
 
-            info = "Дата призову: " + textBox3.Text + "\n";
+            info = "Дата призову: " + dateTimePicker2.Text + "\n";
             listBox1.Items.Add(info);
 
-            info = "Дата занесення до запасу: " + textBox4.Text + "\n";
+            info = "Дата занесення до запасу: " + dateTimePicker4.Text + "\n";
             listBox1.Items.Add(info);
 
             info = "Військова частина: " + textBox5.Text + "\n";
@@ -141,16 +141,34 @@ namespace Курсовая_работа2
             info = "Рік народження: " + textBox7.Text + "\n";
             listBox1.Items.Add(info);
 
-            info = "Дата призову: " + textBox8.Text + "\n";
+            info = "Дата призову: " + dateTimePicker3.Text + "\n";
             listBox1.Items.Add(info);
 
-            info = "Дата занесення до реєстру: " + textBox9.Text + "\n";
+            info = "Дата занесення до реєстру: " + dateTimePicker5.Text + "\n";
             listBox1.Items.Add(info);
 
             info = "Громадянство: " + textBox10.Text + "\n";
             listBox1.Items.Add(info);
 
             info = "Освіта, професія: " + textBox11.Text + "\n";
+            listBox1.Items.Add(info);
+
+            // расчет даты окончания
+            DateTime enlistmentDate = DateTime.Parse(dateTimePicker3.Text);
+            DateTime endDate = enlistmentDate.AddYears(1).AddDays(-1);
+            TimeSpan remainingServiceTime = endDate - DateTime.Today;
+
+            // проверка на завершение службы
+            if (remainingServiceTime.Days < 0)
+            {
+                info = "Ваша служба была закончена " + endDate.ToString("dd.MM.yyyy") + "\n";
+            }
+            else
+            {
+                // добавление информации о дате окончания службы
+                info = "Осталось до конца службы: " + remainingServiceTime.Days + " дней(я), ваша служба закончится " + endDate.ToString("dd.MM.yyyy") + "\n";
+            }
+
             listBox1.Items.Add(info);
 
             // строка с символами подчеркивания
@@ -162,6 +180,7 @@ namespace Курсовая_работа2
             // очистка текстбоксов 6-11
             ClearTextBoxes();
         }
+
         private void ClearTextBoxes()
         {
             textBox6.Clear();
@@ -233,6 +252,11 @@ namespace Курсовая_работа2
             Form5 form5 = new Form5();
             form5.Show();
             this.Hide();
+        }
+
+        private void dateTimePicker5_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
