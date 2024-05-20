@@ -170,14 +170,8 @@ namespace Курсовая_работа2
             }
 
             listBox1.Items.Add(info);
-
-            // строка с символами подчеркивания
             listBox1.Items.Add("___________________");
-
-            // счетчик+1 для следующего военнообязанного
             militaryCounter++;
-
-            // очистка текстбоксов 6-11
             ClearTextBoxes();
         }
 
@@ -219,7 +213,6 @@ namespace Курсовая_работа2
 
         private void button6_Click(object sender, EventArgs e)
         {
-            // диалог для выбора XML файла
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
 
