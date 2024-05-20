@@ -78,7 +78,6 @@ namespace Курсовая_работа2
             // Проверка, что все текстовые поля заполнены
             if (string.IsNullOrWhiteSpace(textBox1.Text) ||
                 string.IsNullOrWhiteSpace(textBox2.Text) ||
-                string.IsNullOrWhiteSpace(textBox4.Text) ||
                 string.IsNullOrWhiteSpace(textBox5.Text))
             {
                 MessageBox.Show("Всі поля мають бути заповнені!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -114,7 +113,6 @@ namespace Курсовая_работа2
 
             textBox1.Clear();
             textBox2.Clear();
-            textBox4.Clear();
             textBox5.Clear();
         }
 
@@ -123,7 +121,6 @@ namespace Курсовая_работа2
             // Проверка, что все текстовые поля заполнены
             if (string.IsNullOrWhiteSpace(textBox6.Text) ||
                 string.IsNullOrWhiteSpace(textBox7.Text) ||
-                string.IsNullOrWhiteSpace(textBox9.Text) ||
                 string.IsNullOrWhiteSpace(textBox10.Text) ||
                 string.IsNullOrWhiteSpace(textBox11.Text))
             {
@@ -169,7 +166,6 @@ namespace Курсовая_работа2
         {
             textBox6.Clear();
             textBox7.Clear();
-            textBox9.Clear();
             textBox10.Clear();
             textBox11.Clear();
         }
