@@ -81,7 +81,6 @@ namespace Курсовая_работа2
                 }
             }
         }
-
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
