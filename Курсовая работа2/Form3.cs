@@ -27,6 +27,7 @@ namespace Курсовая_работа2
                 listBox2.Items.Add(item);
             }
         }
+
         public Form3()
         {
             InitializeComponent();
@@ -66,13 +67,15 @@ namespace Курсовая_работа2
                     // загрузка XML-файла
                     XDocument xmlDoc = XDocument.Load(openFileDialog1.FileName);
 
-                    // ччистка listBox1 перед загрузкой данных
+                    // очистка listBox1 перед загрузкой данных
                     listBox1.Items.Clear();
 
-                    // чтение данных из XML-файла и добавление их в listBox1
-                    foreach (XElement element in xmlDoc.Descendants())
+                    bool firstElement = true;
+
+                    // считывание данных из XML-файла и добавление их в listBox1
+                    foreach (XElement element in xmlDoc.Root.Elements())
                     {
-                        listBox1.Items.Add(element.Name + ": " + element.Value);
+                        listBox1.Items.Add(element.Value);
                     }
                 }
                 catch (Exception ex)
@@ -107,16 +110,16 @@ namespace Курсовая_работа2
             {
                 try
                 {
-                    // загрузка XML-файла
+                    // Загрузка XML-файла
                     XDocument xmlDoc = XDocument.Load(openFileDialog1.FileName);
 
-                    // очистка listBox1 перед загрузкой данных
+                    // Очистка listBox2 перед загрузкой данных
                     listBox2.Items.Clear();
 
-                    // чтение данных из XML-файла и добавление их в listBox1
-                    foreach (XElement element in xmlDoc.Descendants())
+                    // Чтение данных из XML-файла и добавление их в listBox2, пропуская корневой элемент
+                    foreach (XElement element in xmlDoc.Root.Elements())
                     {
-                        listBox2.Items.Add(element.Name + ": " + element.Value);
+                        listBox2.Items.Add(element.Value);
                     }
                 }
                 catch (Exception ex)
@@ -124,6 +127,20 @@ namespace Курсовая_работа2
                     MessageBox.Show("Помилка: " + ex.Message);
                 }
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

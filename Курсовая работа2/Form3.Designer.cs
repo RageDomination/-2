@@ -173,6 +173,7 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "Отримати інформацію по звільненим військов.";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listBox1
             // 
@@ -188,6 +189,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(343, 301);
             this.listBox1.TabIndex = 22;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -250,6 +252,7 @@
             this.button2.TabIndex = 21;
             this.button2.Text = "Отримати кількість призваних на службу";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dateTimePicker4
             // 
