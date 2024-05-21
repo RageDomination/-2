@@ -15,6 +15,7 @@ namespace Курсовая_работа2
         public Form5()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void button4_Click(object sender, EventArgs e)

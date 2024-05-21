@@ -16,6 +16,7 @@ namespace Курсовая_работа2
         public Form1()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

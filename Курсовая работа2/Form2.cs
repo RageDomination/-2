@@ -19,6 +19,7 @@ namespace Курсовая_работа2
         public Form2()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
 
         }
         private void Form2_Load(object sender, EventArgs e)

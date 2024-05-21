@@ -30,6 +30,7 @@ namespace Курсовая_работа2
         public Form3()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             ToolTip toolTip1 = new ToolTip();
 
@@ -192,14 +193,19 @@ namespace Курсовая_работа2
 
         private void ShowInfoForm(List<ReserveInfo> info)
         {
-            Form infoForm = new Form();
-            infoForm.Text = "Список інформації";
+            Form infoForm = new Form
+            {
+                Text = "Список інформації",
+                StartPosition = FormStartPosition.CenterScreen
+            };
 
-            TextBox textBox = new TextBox();
-            textBox.Multiline = true;
-            textBox.ScrollBars = ScrollBars.Vertical;
-            textBox.Dock = DockStyle.Fill;
-            textBox.ReadOnly = true;
+            TextBox textBox = new TextBox
+            {
+                Multiline = true,
+                ScrollBars = ScrollBars.Vertical,
+                Dock = DockStyle.Fill,
+                ReadOnly = true
+            };
 
             foreach (ReserveInfo reserveInfo in info)
             {
@@ -279,15 +285,20 @@ namespace Курсовая_работа2
         private void DisplayRecruitmentInfo(List<RecruitmentInfo> info)
         {
             // новое окно для отображения информации
-            Form infoForm = new Form();
-            infoForm.Text = "Інформація про призов";
+            Form infoForm = new Form
+            {
+                Text = "Інформація про призов",
+                StartPosition = FormStartPosition.CenterScreen // Устанавливаем окно по центру экрана
+            };
 
             // текстовое поле для вывода информации
-            TextBox textBox = new TextBox();
-            textBox.Multiline = true;
-            textBox.ScrollBars = ScrollBars.Vertical;
-            textBox.Dock = DockStyle.Fill;
-            textBox.ReadOnly = true;
+            TextBox textBox = new TextBox
+            {
+                Multiline = true,
+                ScrollBars = ScrollBars.Vertical,
+                Dock = DockStyle.Fill,
+                ReadOnly = true
+            };
 
             foreach (RecruitmentInfo infoItem in info)
             {

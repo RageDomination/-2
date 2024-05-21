@@ -19,6 +19,7 @@ namespace Курсовая_работа2
         public Form4()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -73,22 +74,26 @@ namespace Курсовая_работа2
                 }
             }
             militaryAndDates.Sort((x, y) => DateTime.Compare(y.Item1, x.Item1));
+
             Form infoForm = new Form
             {
                 Text = "Інформація про Військовозабов'язаних і дати занесення до запасу",
                 StartPosition = FormStartPosition.CenterScreen
             };
+
             TextBox textBox = new TextBox
             {
                 Multiline = true,
                 ScrollBars = ScrollBars.Vertical,
                 Dock = DockStyle.Fill
+            };
 
             foreach (var item in militaryAndDates)
             {
                 string info = $"{item.Item2}, {item.Item3}";
                 textBox.AppendText(info + Environment.NewLine);
             }
+
             infoForm.Controls.Add(textBox);
             infoForm.Size = new Size(500, 400);
             infoForm.ShowDialog();
