@@ -90,12 +90,12 @@ namespace Курсовая_работа2
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear(); // очистка listBox1
+            listBox1.Items.Clear();
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            listBox2.Items.Clear(); // очистка listBox1
+            listBox2.Items.Clear();
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -138,17 +138,17 @@ namespace Курсовая_работа2
             if (rangeEnd == rangeStart)
             {
                 MessageBox.Show("Початок і кінець діапазону однакові.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Завершаем выполнение метода
+                return;
             }
 
-            // Проверяем, если дата в dateTimePicker3 старше даты в dateTimePicker2
+            // проверка, если дата в dateTimePicker3 старше даты в dateTimePicker2
             if (rangeEnd < rangeStart)
             {
                 MessageBox.Show("Дата закінчення діапазону не може бути раніше дати початку діапазону.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Завершаем выполнение метода
+                return;
             }
 
-            // Создаем список для хранения информации о датах и связанных с ними текстах
+            // создание списка для хранения информации о датах и связанных с ними текстах
             List<string> registryInfo = new List<string>();
 
             for (int i = 0; i < listBox1.Items.Count; i++)
@@ -161,49 +161,35 @@ namespace Курсовая_работа2
                     int textIndex = Math.Max(0, dateIndex - 4);
                     string text = listBox1.Items[textIndex].ToString().Trim();
 
-                    // получение даты
+
                     string dateString = item.Replace("Дата занесення до запасу:", "").Trim();
                     DateTime date;
                     if (DateTime.TryParse(dateString, out date))
                     {
-                        // проверка на попадение в диапазон
                         if (date >= rangeStart && date <= rangeEnd)
                         {
-                            // Формируем строку с датой и текстом через запятую
                             string combinedText = $"{text}, {date}";
-
-                            // добавление строки в список
                             registryInfo.Add(combinedText);
                         }
                     }
                 }
             }
-
-            // диалоговое окно с информацией
             ShowInfoForm(registryInfo);
         }
         private void ShowInfoForm(List<string> info)
         {
-            // новое окно для отображения информации
             Form infoForm = new Form();
             infoForm.Text = "Список інформації";
-
-            // текстовое поле для вывода информации
             TextBox textBox = new TextBox();
             textBox.Multiline = true;
             textBox.ScrollBars = ScrollBars.Vertical;
             textBox.Dock = DockStyle.Fill;
-
-            // Добавляем информацию в текстовое поле, разделяя каждую пару текст-дата запятой
             foreach (string line in info)
             {
-                // Добавляем пробел после запятой и выводим "Дата занесення до запасу: " перед датой
                 string formattedLine = line.Replace(", ", ", Дата занесення до запасу: ");
                 textBox.Text += formattedLine + Environment.NewLine;
             }
             infoForm.Controls.Add(textBox);
-
-            // размеры формы
             infoForm.Size = new Size(500, 400);
             infoForm.ShowDialog();
         }
