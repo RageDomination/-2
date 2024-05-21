@@ -147,14 +147,12 @@ namespace Курсовая_работа2
                 return;
             }
 
-            // проверка, если дата в dateTimePicker3 старше даты в dateTimePicker2
             if (rangeEnd < rangeStart)
             {
                 MessageBox.Show("Дата закінчення діапазону не може бути раніше дати початку діапазону.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // список для хранения информации о датах и связанных с ними текстах
             List<ReserveInfo> registryInfo = new List<ReserveInfo>();
 
             for (int i = 0; i < listBox1.Items.Count; i++)
@@ -179,7 +177,6 @@ namespace Курсовая_работа2
                                 Date = date
                             };
 
-                            // добавление объекта в список
                             registryInfo.Add(info);
                         }
                     }
@@ -298,8 +295,6 @@ namespace Курсовая_работа2
             }
 
             infoForm.Controls.Add(textBox);
-
-            // размеры формы
             infoForm.Size = new Size(500, 400);
             infoForm.ShowDialog();
         }
