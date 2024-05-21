@@ -90,12 +90,12 @@ namespace Курсовая_работа2
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear(); // очистка listBox1
+            listBox1.Items.Clear();
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            listBox2.Items.Clear(); // очистка listBox1
+            listBox2.Items.Clear();
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -129,32 +129,31 @@ namespace Курсовая_работа2
         {
 
         }
+        public class ReserveInfo
+        {
+            public string Text { get; set; }
+            public DateTime Date { get; set; }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             DateTime rangeStart = dateTimePicker2.Value;
             DateTime rangeEnd = dateTimePicker3.Value;
 
-            // проверка на совпадение начала и конца диалога
-            if (rangeEnd == rangeStart)
-            {
-                MessageBox.Show("Початок і кінець діапазону однакові.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Завершаем выполнение метода
-            }
-
-            // Проверяем, если дата в dateTimePicker3 старше даты в dateTimePicker2
+            // проверка если дата в dateTimePicker3 старше даты в dateTimePicker2
             if (rangeEnd < rangeStart)
             {
                 MessageBox.Show("Дата закінчення діапазону не може бути раніше дати початку діапазону.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Завершаем выполнение метода
+                return;
             }
 
-            // Создаем список для хранения информации о датах и связанных с ними текстах
-            List<string> registryInfo = new List<string>();
+            // список для хранения информации о датах и связанных с ними текстах
+            List<ReserveInfo> registryInfo = new List<ReserveInfo>();
 
             for (int i = 0; i < listBox1.Items.Count; i++)
             {
                 string item = listBox1.Items[i].ToString();
-                
+
                 if (item.Contains("Дата занесення до запасу:"))
                 {
                     int dateIndex = i;
@@ -169,20 +168,27 @@ namespace Курсовая_работа2
                         // проверка на попадение в диапазон
                         if (date >= rangeStart && date <= rangeEnd)
                         {
-                            // Формируем строку с датой и текстом через запятую
-                            string combinedText = $"{text}, {date}";
+                            ReserveInfo info = new ReserveInfo
+                            {
+                                Text = text,
+                                Date = date
+                            };
 
-                            // добавление строки в список
-                            registryInfo.Add(combinedText);
+                            // добавление объекта в список
+                            registryInfo.Add(info);
                         }
                     }
                 }
             }
 
+            // сортировка по дате занесения до запаса
+            registryInfo.Sort((info1, info2) => info1.Date.CompareTo(info2.Date));
+
             // диалоговое окно с информацией
             ShowInfoForm(registryInfo);
         }
-        private void ShowInfoForm(List<string> info)
+
+        private void ShowInfoForm(List<ReserveInfo> info)
         {
             // новое окно для отображения информации
             Form infoForm = new Form();
@@ -194,11 +200,10 @@ namespace Курсовая_работа2
             textBox.ScrollBars = ScrollBars.Vertical;
             textBox.Dock = DockStyle.Fill;
 
-            // Добавляем информацию в текстовое поле, разделяя каждую пару текст-дата запятой
-            foreach (string line in info)
+            foreach (ReserveInfo reserveInfo in info)
             {
-                // Добавляем пробел после запятой и выводим "Дата занесення до запасу: " перед датой
-                string formattedLine = line.Replace(", ", ", Дата занесення до запасу: ");
+                // строка с информацией о дате занесения до запаса
+                string formattedLine = $"{reserveInfo.Text}, Дата занесення до запасу: {reserveInfo.Date}";
                 textBox.Text += formattedLine + Environment.NewLine;
             }
             infoForm.Controls.Add(textBox);
@@ -207,10 +212,93 @@ namespace Курсовая_работа2
             infoForm.Size = new Size(500, 400);
             infoForm.ShowDialog();
         }
-
+        public class RecruitmentInfo
+        {
+            public string MilitaryNumber { get; set; }
+            public DateTime Date { get; set; }
+            public string Info { get; set; }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            DateTime rangeStart = dateTimePicker5.Value;
+            DateTime rangeEnd = dateTimePicker4.Value;
+
+            // проверка если дата в dateTimePicker4 старше даты в dateTimePicker5
+            if (rangeEnd < rangeStart)
+            {
+                MessageBox.Show("Дата закінчення діапазону не може бути раніше дати початку діапазону.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // проверка на совпадение начала и конца диапазона
+            if (rangeEnd == rangeStart)
+            {
+                MessageBox.Show("Початок і кінець діапазону однакові.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<RecruitmentInfo> registryInfo = new List<RecruitmentInfo>();
+
+            // проверка элементов в listBox2
+            for (int i = 0; i < listBox2.Items.Count; i++)
+            {
+                string item = listBox2.Items[i].ToString();
+
+                if (item.Contains("Дата призову:"))
+                {
+                    // получение даты
+                    string dateString = item.Replace("Дата призову:", "").Trim();
+                    DateTime date;
+                    if (DateTime.TryParse(dateString, out date))
+                    {
+                        // проверка на попадение в диапазон
+                        if (date >= rangeStart && date <= rangeEnd)
+                        {
+                            int textIndex = Math.Max(0, i - 3); // Поднимаемся на 3 строки вверх
+                            string militaryNumber = listBox2.Items[textIndex].ToString().Trim(); // Получаем информацию о номере военнообязанного
+                            RecruitmentInfo info = new RecruitmentInfo
+                            {
+                                MilitaryNumber = militaryNumber,
+                                Date = date,
+                                Info = item
+                            };
+
+                            // добавление объекта в список
+                            registryInfo.Add(info);
+                        }
+                    }
+                }
+            }
+
+            // Сортировка списка объектов по дате призыва
+            registryInfo.Sort((info1, info2) => info1.Date.CompareTo(info2.Date));
+            DisplayRecruitmentInfo(registryInfo);
+        }
+
+        private void DisplayRecruitmentInfo(List<RecruitmentInfo> info)
+        {
+            // новое окно для отображения информации
+            Form infoForm = new Form();
+            infoForm.Text = "Інформація про призов";
+
+            // текстовое поле для вывода информации
+            TextBox textBox = new TextBox();
+            textBox.Multiline = true;
+            textBox.ScrollBars = ScrollBars.Vertical;
+            textBox.Dock = DockStyle.Fill;
+            textBox.ReadOnly = true;
+
+            
+            foreach (RecruitmentInfo infoItem in info)
+            {
+                textBox.Text += $"{infoItem.MilitaryNumber}, {infoItem.Info}" + Environment.NewLine;
+            }
+
+            infoForm.Controls.Add(textBox);
+
+            // размеры формы
+            infoForm.Size = new Size(500, 400);
+            infoForm.ShowDialog();
         }
     }
 }
