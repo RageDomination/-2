@@ -69,8 +69,6 @@ namespace Курсовая_работа2
                     // очистка listBox1 перед загрузкой данных
                     listBox1.Items.Clear();
 
-                    bool firstElement = true;
-
                     // считывание данных из XML-файла и добавление их в listBox1
                     foreach (XElement element in xmlDoc.Root.Elements())
                     {
@@ -82,10 +80,6 @@ namespace Курсовая_работа2
                     MessageBox.Show("Помилка: " + ex.Message);
                 }
             }
-        }
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -160,12 +154,10 @@ namespace Курсовая_работа2
                     int textIndex = Math.Max(0, dateIndex - 4);
                     string text = listBox1.Items[textIndex].ToString().Trim();
 
-                    // получение даты
                     string dateString = item.Replace("Дата занесення до запасу:", "").Trim();
                     DateTime date;
                     if (DateTime.TryParse(dateString, out date))
                     {
-                        // проверка на попадение в диапазон
                         if (date >= rangeStart && date <= rangeEnd)
                         {
                             ReserveInfo info = new ReserveInfo
@@ -190,11 +182,9 @@ namespace Курсовая_работа2
 
         private void ShowInfoForm(List<ReserveInfo> info)
         {
-            // новое окно для отображения информации
             Form infoForm = new Form();
             infoForm.Text = "Список інформації";
 
-            // текстовое поле для вывода информации
             TextBox textBox = new TextBox();
             textBox.Multiline = true;
             textBox.ScrollBars = ScrollBars.Vertical;
@@ -202,13 +192,10 @@ namespace Курсовая_работа2
 
             foreach (ReserveInfo reserveInfo in info)
             {
-                // строка с информацией о дате занесения до запаса
                 string formattedLine = $"{reserveInfo.Text}, Дата занесення до запасу: {reserveInfo.Date}";
                 textBox.Text += formattedLine + Environment.NewLine;
             }
             infoForm.Controls.Add(textBox);
-
-            // размеры формы
             infoForm.Size = new Size(500, 400);
             infoForm.ShowDialog();
         }
@@ -270,7 +257,7 @@ namespace Курсовая_работа2
                 }
             }
 
-            // Сортировка списка объектов по дате призыва
+            // сортировка списка объектов по дате призыва
             registryInfo.Sort((info1, info2) => info1.Date.CompareTo(info2.Date));
             DisplayRecruitmentInfo(registryInfo);
         }
@@ -288,14 +275,12 @@ namespace Курсовая_работа2
             textBox.Dock = DockStyle.Fill;
             textBox.ReadOnly = true;
 
-            
             foreach (RecruitmentInfo infoItem in info)
             {
                 textBox.Text += $"{infoItem.MilitaryNumber}, {infoItem.Info}" + Environment.NewLine;
             }
 
             infoForm.Controls.Add(textBox);
-
             // размеры формы
             infoForm.Size = new Size(500, 400);
             infoForm.ShowDialog();
