@@ -38,11 +38,21 @@ namespace Курсовая_работа2
             listBox1.HorizontalScrollbar = true;
             listBox1.SelectionMode = SelectionMode.MultiExtended;
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
             Form4 form4 = new Form4();
+
+            List<string> items = new List<string>();
+            foreach (var item in listBox1.Items)
+            {
+                items.Add(item.ToString());
+            }
+            form4.SetListBoxItems(items);
             form4.Show();
+            this.Hide();
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -73,7 +83,7 @@ namespace Курсовая_работа2
         private int militaryCounter = 1;
         private void button3_Click(object sender, EventArgs e)
         {
-            // Проверка, что все текстовые поля заполнены
+            // проверка полей
             if (string.IsNullOrWhiteSpace(textBox1.Text) ||
                 string.IsNullOrWhiteSpace(textBox2.Text) ||
                 string.IsNullOrWhiteSpace(textBox5.Text))
@@ -158,17 +168,23 @@ namespace Курсовая_работа2
             // проверка на завершение службы
             if (remainingServiceTime.Days < 0)
             {
-                info = "Ваша служба была закончена " + endDate.ToString("dd.MM.yyyy") + "\n";
+                info = "Ваша служба була завершена " + endDate.ToString("dd.MM.yyyy") + "\n";
             }
             else
             {
                 // добавление информации о дате окончания службы
-                info = "Осталось до конца службы: " + remainingServiceTime.Days + " дней(я), ваша служба закончится " + endDate.ToString("dd.MM.yyyy") + "\n";
+                info = "Залишилось до кінця служби: " + remainingServiceTime.Days + " днів(я), ваша служба завершиться " + endDate.ToString("dd.MM.yyyy") + "\n";
             }
 
             listBox1.Items.Add(info);
+
+            // строка с символами подчеркивания
             listBox1.Items.Add("___________________");
+
+            // счетчик+1 для следующего военнообязанного
             militaryCounter++;
+
+            // очистка текстбоксов 6-11
             ClearTextBoxes();
         }
 
@@ -207,6 +223,7 @@ namespace Курсовая_работа2
 
         private void button6_Click(object sender, EventArgs e)
         {
+            // диалог для выбора XML файла
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
 

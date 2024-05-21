@@ -48,11 +48,11 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel2.SuspendLayout();
@@ -238,14 +238,14 @@
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.pictureBox7);
             this.panel4.Controls.Add(this.pictureBox8);
             this.panel4.Controls.Add(this.listBox2);
             this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.dateTimePicker4);
-            this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.dateTimePicker5);
-            this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(835, 74);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(380, 499);
@@ -321,15 +321,6 @@
             this.dateTimePicker4.Size = new System.Drawing.Size(132, 29);
             this.dateTimePicker4.TabIndex = 20;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(122, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Виберіть кінцеву дату";
-            // 
             // dateTimePicker5
             // 
             this.dateTimePicker5.CalendarForeColor = System.Drawing.Color.DarkSeaGreen;
@@ -344,15 +335,6 @@
             this.dateTimePicker5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker5.Size = new System.Drawing.Size(132, 29);
             this.dateTimePicker5.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(120, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Виберіть поточну дату";
             // 
             // panel3
             // 
@@ -372,6 +354,24 @@
             this.pictureBox2.Size = new System.Drawing.Size(138, 78);
             this.pictureBox2.TabIndex = 25;
             this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(131, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Початок діапазону";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(131, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Кінець діапазону";
             // 
             // Form3
             // 
@@ -416,9 +416,7 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -426,5 +424,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
     }
 }
