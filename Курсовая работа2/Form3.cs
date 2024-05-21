@@ -35,7 +35,7 @@ namespace Курсовая_работа2
 
             toolTip1.AutoPopDelay = 5000; // Время, в течение которого подсказка отображается
             toolTip1.InitialDelay = 350; // Задержка перед появлением подсказки
-            toolTip1.ReshowDelay = 500; //  Время повторного отображения подсказки
+            toolTip1.ReshowDelay = 500; // Время повторного отображения подсказки
             toolTip1.ShowAlways = true; // Показывать подсказку всегда, даже если форма не активна
 
             // информация на картинках
@@ -123,6 +123,12 @@ namespace Курсовая_работа2
         {
 
         }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         public class ReserveInfo
         {
             public string Text { get; set; }
@@ -134,7 +140,14 @@ namespace Курсовая_работа2
             DateTime rangeStart = dateTimePicker2.Value;
             DateTime rangeEnd = dateTimePicker3.Value;
 
-            // проверка если дата в dateTimePicker3 старше даты в dateTimePicker2
+            // проверка на совпадение начала и конца диапазона
+            if (rangeEnd == rangeStart)
+            {
+                MessageBox.Show("Початок і кінець діапазону однакові.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // проверка, если дата в dateTimePicker3 старше даты в dateTimePicker2
             if (rangeEnd < rangeStart)
             {
                 MessageBox.Show("Дата закінчення діапазону не може бути раніше дати початку діапазону.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -189,22 +202,26 @@ namespace Курсовая_работа2
             textBox.Multiline = true;
             textBox.ScrollBars = ScrollBars.Vertical;
             textBox.Dock = DockStyle.Fill;
+            textBox.ReadOnly = true;
 
             foreach (ReserveInfo reserveInfo in info)
             {
                 string formattedLine = $"{reserveInfo.Text}, Дата занесення до запасу: {reserveInfo.Date}";
                 textBox.Text += formattedLine + Environment.NewLine;
             }
+
             infoForm.Controls.Add(textBox);
             infoForm.Size = new Size(500, 400);
             infoForm.ShowDialog();
         }
+
         public class RecruitmentInfo
         {
             public string MilitaryNumber { get; set; }
             public DateTime Date { get; set; }
             public string Info { get; set; }
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
             DateTime rangeStart = dateTimePicker5.Value;
@@ -281,6 +298,7 @@ namespace Курсовая_работа2
             }
 
             infoForm.Controls.Add(textBox);
+
             // размеры формы
             infoForm.Size = new Size(500, 400);
             infoForm.ShowDialog();
