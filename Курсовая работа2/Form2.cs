@@ -116,7 +116,6 @@ namespace Курсовая_работа2
 
             listBox1.Items.Add("___________________");
 
-            // счетчик для следующего военнообязанного
             militaryCounter++;
 
             textBox1.Clear();
@@ -126,7 +125,7 @@ namespace Курсовая_работа2
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // Проверка, что все текстовые поля заполнены
+            // проверка на заполненность текстовых полей
             if (string.IsNullOrWhiteSpace(textBox6.Text) ||
                 string.IsNullOrWhiteSpace(textBox7.Text) ||
                 string.IsNullOrWhiteSpace(textBox10.Text) ||
@@ -199,7 +198,6 @@ namespace Курсовая_работа2
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            // создание нового документа
             XDocument doc = new XDocument();
             XElement rootElement = new XElement("Items");
 
@@ -211,7 +209,6 @@ namespace Курсовая_работа2
 
             doc.Add(rootElement);
 
-            // открытие диалога
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
             saveFileDialog.DefaultExt = "xml";
@@ -219,7 +216,6 @@ namespace Курсовая_работа2
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // система сохранения + меню
                 doc.Save(saveFileDialog.FileName);
                 MessageBox.Show("Файл успішно збережено!", "Збереження", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -235,12 +231,10 @@ namespace Курсовая_работа2
             {
                 try
                 {
-                    // загружка XML документа
                     XDocument doc = XDocument.Load(openFileDialog.FileName);
 
                     listBox1.Items.Clear();
 
-                    // добавление в listBox
                     foreach (XElement itemElement in doc.Descendants("Item"))
                     {
                         listBox1.Items.Add(itemElement.Value);
