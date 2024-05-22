@@ -26,7 +26,6 @@ namespace Курсовая_работа2
         {
 
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
@@ -115,7 +114,7 @@ namespace Курсовая_работа2
             info = "Військова частина: " + textBox5.Text + "\n";
             listBox1.Items.Add(info);
 
-            listBox1.Items.Add("___________________");
+            listBox1.Items.Add(" ");
 
             militaryCounter++;
 
@@ -176,11 +175,10 @@ namespace Курсовая_работа2
                 // добавление информации о дате окончания службы
                 info = "Залишилось до кінця служби: " + remainingServiceTime.Days + " днів(я), ваша служба завершиться " + endDate.ToString("dd.MM.yyyy") + "\n";
             }
-
             listBox1.Items.Add(info);
 
-            // строка с символами подчеркивания
-            listBox1.Items.Add("___________________");
+            // расстоияне между блоками информации
+            listBox1.Items.Add(" ");
 
             // счетчик+1 для следующего военнообязанного
             militaryCounter++;
