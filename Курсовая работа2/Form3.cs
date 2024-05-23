@@ -140,15 +140,8 @@ namespace Курсовая_работа2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime rangeStart = dateTimePicker2.Value;
-            DateTime rangeEnd = dateTimePicker3.Value;
-
-            // проверка на совпадение начала и конца диапазона
-            if (rangeEnd == rangeStart)
-            {
-                MessageBox.Show("Початок і кінець діапазону однакові.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            DateTime rangeStart = dateTimePicker2.Value.Date;
+            DateTime rangeEnd = dateTimePicker3.Value.Date;
 
             if (rangeEnd < rangeStart)
             {
@@ -229,20 +222,13 @@ namespace Курсовая_работа2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DateTime rangeStart = dateTimePicker5.Value;
-            DateTime rangeEnd = dateTimePicker4.Value;
+            DateTime rangeStart = dateTimePicker5.Value.Date;
+            DateTime rangeEnd = dateTimePicker4.Value.Date;
 
             // проверка если дата в dateTimePicker4 старше даты в dateTimePicker5
             if (rangeEnd < rangeStart)
             {
                 MessageBox.Show("Дата закінчення діапазону не може бути раніше дати початку діапазону.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // проверка на совпадение начала и конца диапазона
-            if (rangeEnd == rangeStart)
-            {
-                MessageBox.Show("Початок і кінець діапазону однакові.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

@@ -237,7 +237,6 @@ namespace Курсовая_работа2
 
         private void button6_Click(object sender, EventArgs e)
         {
-            // диалог для выбора XML файла
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
 
@@ -253,8 +252,6 @@ namespace Курсовая_работа2
                     foreach (XElement itemElement in doc.Descendants("Item"))
                     {
                         listBox1.Items.Add(itemElement.Value);
-
-                        // Определение наивысшего номера военнообязанного
                         string itemValue = itemElement.Value;
                         if (itemValue.StartsWith("Військовозабов'язаний "))
                         {
@@ -268,8 +265,6 @@ namespace Курсовая_работа2
                             }
                         }
                     }
-
-                    // Обновление счетчика militaryCounter
                     militaryCounter = highestCounter + 1;
 
                     MessageBox.Show("Файл успішно завантажений! Не забудьте зберегти його після редагування.", "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
