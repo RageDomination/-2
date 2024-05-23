@@ -30,11 +30,28 @@ namespace Курсовая_работа2
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-            form2.Show();
-            this.Hide();
+            CheckPassword();
         }
 
+        private void CheckPassword()
+        {
+            string password = textBox1.Text;
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show(this, "Введіть пароль для входу в систему", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (password == "1111")
+            {
+                Form2 form2 = new Form2();
+                form2.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show(this, "Неправильний пароль! Спробуйте ще раз", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
