@@ -89,6 +89,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.Location = new System.Drawing.Point(65, -13);
             this.button4.Name = "button4";

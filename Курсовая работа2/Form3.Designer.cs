@@ -67,11 +67,13 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(63, -8);
+            this.button4.Location = new System.Drawing.Point(63, 0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(119, 61);
+            this.button4.Size = new System.Drawing.Size(119, 39);
             this.button4.TabIndex = 16;
             this.button4.Text = "На головну";
             this.button4.UseVisualStyleBackColor = false;
@@ -164,6 +166,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.Color.White;
@@ -313,6 +316,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("Sitka Subheading", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.Color.White;
