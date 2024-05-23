@@ -51,7 +51,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -358,14 +357,6 @@
             this.dateTimePicker5.Size = new System.Drawing.Size(132, 29);
             this.dateTimePicker5.TabIndex = 18;
             // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
-            this.panel3.Location = new System.Drawing.Point(832, 104);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(377, 499);
-            this.panel3.TabIndex = 5;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -382,10 +373,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1281, 626);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Form3";
@@ -422,7 +413,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker dateTimePicker4;
         private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;

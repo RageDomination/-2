@@ -248,11 +248,29 @@ namespace Курсовая_работа2
                     XDocument doc = XDocument.Load(openFileDialog.FileName);
 
                     listBox1.Items.Clear();
+                    int highestCounter = 0; // Переменная для хранения наивысшего номера военнообязанного
 
                     foreach (XElement itemElement in doc.Descendants("Item"))
                     {
                         listBox1.Items.Add(itemElement.Value);
+
+                        // Определение наивысшего номера военнообязанного
+                        string itemValue = itemElement.Value;
+                        if (itemValue.StartsWith("Військовозабов'язаний "))
+                        {
+                            int counter;
+                            if (int.TryParse(itemValue.Split(' ')[1], out counter))
+                            {
+                                if (counter > highestCounter)
+                                {
+                                    highestCounter = counter;
+                                }
+                            }
+                        }
                     }
+
+                    // Обновление счетчика militaryCounter
+                    militaryCounter = highestCounter + 1;
 
                     MessageBox.Show("Файл успішно завантажений! Не забудьте зберегти його після редагування.", "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
