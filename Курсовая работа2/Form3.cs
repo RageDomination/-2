@@ -44,6 +44,8 @@ namespace Курсовая_работа2
             toolTip1.SetToolTip(this.pictureBox3, "Завантажити");
             toolTip1.SetToolTip(this.pictureBox7, "Завантажити");
             toolTip1.SetToolTip(this.pictureBox8, "Стерти");
+            toolTip1.SetToolTip(this.button1, "Вивести інформацію по всім військовозобов'язаним, звільненим в запас в період введеного інтервалу дат");
+            toolTip1.SetToolTip(this.button2, "Підрахувати кількість призваних на службу в період введеного інтервалу дат");
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -460,7 +460,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(630, 613);
+            this.button3.Location = new System.Drawing.Point(630, 610);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(184, 35);
             this.button3.TabIndex = 8;
@@ -476,7 +476,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Sitka Subheading", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(942, 613);
+            this.button1.Location = new System.Drawing.Point(942, 610);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 35);
             this.button1.TabIndex = 10;

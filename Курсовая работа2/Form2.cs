@@ -21,6 +21,20 @@ namespace Курсовая_работа2
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
 
+            System.Windows.Forms.ToolTip toolTip1 = new System.Windows.Forms.ToolTip();
+
+            toolTip1.SetToolTip(pictureBox1, "Підрахунки за діапазонами дат");
+            toolTip1.SetToolTip(button6, "Завантажити XML файл із комп'ютера");
+            toolTip1.SetToolTip(button5, "Зберегти XML файл на комп'ютер");
+            toolTip1.SetToolTip(button3, "Додати до запасу зі спеціальним тегом [ЗАПАС]");
+            toolTip1.SetToolTip(button1, "Додати до реєстру військовозобов'язаного");
+
+
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 350;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
         }
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -239,7 +253,7 @@ namespace Курсовая_работа2
                         listBox1.Items.Add(itemElement.Value);
                     }
 
-                    MessageBox.Show("Файл успішно завантажений!", "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Файл успішно завантажений! Не забудьте зберегти його після редагування.", "Загрузка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
