@@ -311,5 +311,11 @@ namespace Курсовая_работа2
             infoForm.Size = new Size(500, 400);
             infoForm.ShowDialog();
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+        }
     }
 }

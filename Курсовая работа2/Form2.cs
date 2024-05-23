@@ -38,7 +38,8 @@ namespace Курсовая_работа2
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
