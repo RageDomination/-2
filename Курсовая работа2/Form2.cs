@@ -107,13 +107,10 @@ namespace Курсовая_работа2
                 return;
             }
 
-            // строка для хранения информации о военнообязанных
             string info = "[ЗАПАС] Військовозабов'язаний " + militaryCounter + "\n";
 
-            // инфо о военнообязанном в ListBox
             listBox1.Items.Add(info);
 
-            // информация из каждого текстового поля поочередно
             info = "ПІБ: " + textBox1.Text + "\n";
             listBox1.Items.Add(info);
 
@@ -140,7 +137,6 @@ namespace Курсовая_работа2
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // проверка на заполненность текстовых полей
             if (string.IsNullOrWhiteSpace(textBox6.Text) ||
                 string.IsNullOrWhiteSpace(textBox7.Text) ||
                 string.IsNullOrWhiteSpace(textBox10.Text) ||
@@ -150,13 +146,10 @@ namespace Курсовая_работа2
                 return;
             }
 
-            // строка хранения информации о военнообязанных
             string info = "Військовозабов'язаний " + militaryCounter + "\n";
 
-            // инфо о военнообязанном в ListBox
             listBox1.Items.Add(info);
 
-            // инфо из каждого текстового поля поочередно
             info = "ПІБ: " + textBox6.Text + "\n";
             listBox1.Items.Add(info);
 
@@ -175,30 +168,24 @@ namespace Курсовая_работа2
             info = "Освіта, професія: " + textBox11.Text + "\n";
             listBox1.Items.Add(info);
 
-            // расчет даты окончания
             DateTime enlistmentDate = DateTime.Parse(dateTimePicker3.Text);
             DateTime endDate = enlistmentDate.AddYears(1).AddDays(-1);
             TimeSpan remainingServiceTime = endDate - DateTime.Today;
 
-            // проверка на завершение службы
             if (remainingServiceTime.Days < 0)
             {
                 info = "Ваша служба була завершена " + endDate.ToString("dd.MM.yyyy") + "\n";
             }
             else
             {
-                // добавление информации о дате окончания службы
                 info = "Залишилось до кінця служби: " + remainingServiceTime.Days + " днів(я), ваша служба завершиться " + endDate.ToString("dd.MM.yyyy") + "\n";
             }
             listBox1.Items.Add(info);
 
-            // расстоияне между блоками информации
             listBox1.Items.Add(" ");
 
-            // счетчик+1 для следующего военнообязанного
             militaryCounter++;
 
-            // очистка текстбоксов 6-11
             ClearTextBoxes();
         }
 
@@ -247,7 +234,7 @@ namespace Курсовая_работа2
                     XDocument doc = XDocument.Load(openFileDialog.FileName);
 
                     listBox1.Items.Clear();
-                    int highestCounter = 0; // Переменная для хранения наивысшего номера военнообязанного
+                    int highestCounter = 0;
 
                     foreach (XElement itemElement in doc.Descendants("Item"))
                     {

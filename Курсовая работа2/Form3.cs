@@ -66,13 +66,10 @@ namespace Курсовая_работа2
             {
                 try
                 {
-                    // загрузка XML-файла
                     XDocument xmlDoc = XDocument.Load(openFileDialog1.FileName);
 
-                    // очистка listBox1 перед загрузкой данных
                     listBox1.Items.Clear();
 
-                    // считывание данных из XML-файла и добавление их в listBox1
                     foreach (XElement element in xmlDoc.Root.Elements())
                     {
                         listBox1.Items.Add(element.Value);
@@ -249,8 +246,8 @@ namespace Курсовая_работа2
                         // проверка на попадение в диапазон
                         if (date >= rangeStart && date <= rangeEnd)
                         {
-                            int textIndex = Math.Max(0, i - 3); // Поднимаемся на 3 строки вверх
-                            string militaryNumber = listBox2.Items[textIndex].ToString().Trim(); // Получаем информацию о номере военнообязанного
+                            int textIndex = Math.Max(0, i - 3);
+                            string militaryNumber = listBox2.Items[textIndex].ToString().Trim();
                             RecruitmentInfo info = new RecruitmentInfo
                             {
                                 MilitaryNumber = militaryNumber,
@@ -276,7 +273,7 @@ namespace Курсовая_работа2
             Form infoForm = new Form
             {
                 Text = "Інформація про призов",
-                StartPosition = FormStartPosition.CenterScreen // Устанавливаем окно по центру экрана
+                StartPosition = FormStartPosition.CenterScreen
             };
 
             // текстовое поле для вывода информации
